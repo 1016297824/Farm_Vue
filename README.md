@@ -1,4 +1,4 @@
-# graduationproject
+# Farm
 
 ## Project setup
 ```
