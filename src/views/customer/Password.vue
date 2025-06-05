@@ -28,7 +28,7 @@
                   type="text"
                   class="form-control"
                   readonly
-                  v-model="userBody1.username"
+                  v-model="userBodyChangePassword.username"
                 />
               </div>
               <div class="form-group text-left">
@@ -36,7 +36,7 @@
                 <input
                   type="password"
                   class="form-control"
-                  v-model="userBody1.password"
+                  v-model="userBodyChangePassword.password"
                   @keyup="writePassword"
                 />
                 <p style="color: red;">
@@ -48,7 +48,7 @@
                 <input
                   type="password"
                   class="form-control"
-                  v-model="userBody1.newPassword"
+                  v-model="userBodyChangePassword.newPassword"
                   @keyup="writeNewPassword"
                 />
                 <p style="color: red;">
@@ -60,7 +60,7 @@
                 <input
                   type="password"
                   class="form-control"
-                  v-model="userBody1.newPassword1"
+                  v-model="userBodyChangePassword.newPassword1"
                   @keyup="writeNewPassword1"
                 />
                 <p style="color: red;">
@@ -92,7 +92,7 @@ import { changePassword } from "@/api/customer.js";
 export default {
   name: "Password",
   data: () => ({
-    userBody1: {
+    userBodyChanePassword: {
       username: sessionStorage.getItem("username"),
       password: null,
       newPassword: null,
@@ -105,23 +105,24 @@ export default {
   methods: {
     changePassword() {
       if (
-        this.userBody1.password == null ||
-        this.userBody1.newPassword == null ||
-        this.userBody1.newPassword1 == null
+        this.userBodyChanePassword.password == null ||
+        this.userBodyChanePassword.newPassword == null ||
+        this.userBodyChanePassword.newPassword1 == null
       ) {
-        if (this.userBody1.password == null) {
+        if (this.userBodyChanePassword.password == null) {
           this.passwordMessage = "请输入旧密码！";
         }
-        if (this.userBody1.newPassword == null) {
+        if (this.userBodyChanePassword.newPassword == null) {
           this.newPasswordMessage = "请输入新密码！";
         }
-        if (this.userBody1.newPassword1 == null) {
+        if (this.userBodyChanePassword.newPassword1 == null) {
           this.newPassword1Message = "请确认新密码！";
         }
-      } else if (this.userBody1.newPassword != this.userBody1.newPassword1) {
+      } else if (this.userBodyChanePassword.newPassword != this.userBodyChanePassword.newPassword1) {
         this.newPassword1Message = "两次输入密码不一致，请再次确认！";
       } else {
-        changePassword(this.userBody1);
+        console.log(this.userBodyChanePassword);
+        changePassword(this.userBodyChanePassword);
       }
     },
     writePassword() {

@@ -67,8 +67,8 @@ export function submitRepair(repair) {
 }
 
 // 修改密码
-export function changePassword(userBody1) {
-  axios.post("restaurantStaff/changePassword", userBody1).then(response => {
+export function changePassword(userBodyChangePassword) {
+  axios.post("restaurantStaff/changePassword", userBodyChangePassword).then(response => {
     setTimeout(() => {
       alert(response.data.message);
     }, 200);
