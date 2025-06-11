@@ -1,7 +1,7 @@
 <template>
   <div>
     <!-- 导航栏 -->
-    <restaurantManagerNavbar />
+    <farmManagerNavbar />
 
     <!-- 子路由 -->
     <router-view />
@@ -15,7 +15,7 @@
 export default {
   name: "FarmManager",
   components: {
-    restaurantManagerNavbar: () =>
+    farmManagerNavbar: () =>
       import("@/components/Header/FarmManagerNavbar"),
     footerNavbar: () => import("@/components/FooterNavbar")
   }
