@@ -92,7 +92,7 @@ import { changePassword } from "@/api/customer.js";
 export default {
   name: "Password",
   data: () => ({
-    userBodyChanePassword: {
+    userBodyChangePassword: {
       username: sessionStorage.getItem("username"),
       password: null,
       newPassword: null,
@@ -105,24 +105,24 @@ export default {
   methods: {
     changePassword() {
       if (
-        this.userBodyChanePassword.password == null ||
-        this.userBodyChanePassword.newPassword == null ||
-        this.userBodyChanePassword.newPassword1 == null
+        this.userBodyChangePassword.password == null ||
+        this.userBodyChangePassword.newPassword == null ||
+        this.userBodyChangePassword.newPassword1 == null
       ) {
-        if (this.userBodyChanePassword.password == null) {
+        if (this.userBodyChangePassword.password == null) {
           this.passwordMessage = "请输入旧密码！";
         }
-        if (this.userBodyChanePassword.newPassword == null) {
+        if (this.userBodyChangePassword.newPassword == null) {
           this.newPasswordMessage = "请输入新密码！";
         }
-        if (this.userBodyChanePassword.newPassword1 == null) {
+        if (this.userBodyChangePassword.newPassword1 == null) {
           this.newPassword1Message = "请确认新密码！";
         }
-      } else if (this.userBodyChanePassword.newPassword != this.userBodyChanePassword.newPassword1) {
+      } else if (this.userBodyChangePassword.newPassword != this.userBodyChangePassword.newPassword1) {
         this.newPassword1Message = "两次输入密码不一致，请再次确认！";
       } else {
-        console.log(this.userBodyChanePassword);
-        changePassword(this.userBodyChanePassword);
+        console.log(this.userBodyChangePassword);
+        changePassword(this.userBodyChangePassword);
       }
     },
     writePassword() {
