@@ -118,10 +118,12 @@ export default {
         if (this.userBodyChangePassword.newPassword1 == null) {
           this.newPassword1Message = "请确认新密码！";
         }
-      } else if (this.userBodyChangePassword.newPassword != this.userBodyChangePassword.newPassword1) {
+      } else if (
+        this.userBodyChangePassword.newPassword !=
+        this.userBodyChangePassword.newPassword1
+      ) {
         this.newPassword1Message = "两次输入密码不一致，请再次确认！";
       } else {
-        console.log(this.userBodyChangePassword);
         changePassword(this.userBodyChangePassword);
       }
     },
